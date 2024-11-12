@@ -23,7 +23,7 @@
         doesn't use the latest URL, they'll miss data and (effectively) erase
         others' votes.
       </section>
-      <section>
+      <section data-section="create-poll" class="hidden">
         <form id="create-poll">
           <h2>Create Poll</h2>
           <fieldset>
@@ -45,6 +45,13 @@
           </div>
         </form>
       </section>
+      <section data-section="vote-poll" class="hidden">
+        <form>
+          <h2 data-vote-poll="question"></h2>
+          <div data-section="option-container"></div>
+          <button type="submit">Vote</button>
+        </form>
+      </section>
     </main>
     <template data-template="option-maker">
       <fieldset role="group">
@@ -52,6 +59,12 @@
         <input id="option-1" name="options" />
         <button type="button" data-form-action="removeOption">-</button>
       </fieldset>
+    </template>
+    <template data-template="option-taker">
+      <label>
+        <input type="radio" value="" name="options" />
+        <span></span>
+      </label>
     </template>
   </body>
 </html>
