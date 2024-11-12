@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Worst Poll</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"
+    />
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./index.js" type="module"></script>
+  </head>
+  <body class="container">
+    <header>
+      <h1>The Worst Poll</h1>
+    </header>
+    <main>
+      <section>
+        Tired of all the useful poll apps out there? Welcome to The Worst Poll!
+        It has no server, all data is persisted in the URL, and each voter must
+        pass the link generated after their vote on to the next voter. If anyone
+        doesn't use the latest URL, they'll miss data and (effectively) erase
+        others' votes.
+      </section>
+      <section>
+        <form id="create-poll">
+          <h2>Create Poll</h2>
+          <fieldset>
+            <label>
+              Poll question
+              <input
+                name="question"
+                placeholder="How much wood would a woodchuck chuck if a woodchuck could chuck wood?"
+              />
+            </label>
+          </fieldset>
+          <label>Options</label>
+          <div data-section="options"></div>
+          <div class="grid">
+            <button type="button" data-form-action="addOption">
+              Add Option
+            </button>
+            <button>Create Poll</button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <template data-template="option-maker">
+      <fieldset role="group">
+        <label for="option-1" type="button">1</label>
+        <input id="option-1" name="options" />
+        <button type="button" data-form-action="removeOption">-</button>
+      </fieldset>
+    </template>
+  </body>
+</html>
